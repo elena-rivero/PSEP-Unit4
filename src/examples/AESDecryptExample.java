@@ -34,7 +34,7 @@ public class AESDecryptExample {
 			// 4 - Llevar a cabo el descifrado
 			byte[] plainText = cipher.doFinal(Base64.getDecoder().decode(TEXTO_CIFRADO));
 			
-			// Imprimimos el mensaje cifrado en Base 64:
+			// Imprimimos el mensaje descifrado:
 			System.out.println(new String(plainText));
 			
 		} catch (NoSuchAlgorithmException e) {

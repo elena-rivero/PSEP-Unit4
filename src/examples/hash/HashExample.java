@@ -1,4 +1,4 @@
-package examples;
+package examples.hash;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;

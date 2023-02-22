@@ -1,4 +1,4 @@
-package examples;
+package examples.rsa;
 
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;

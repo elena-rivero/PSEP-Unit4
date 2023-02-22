@@ -1,4 +1,4 @@
-package examples;
+package examples.aes;
 
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -11,12 +11,12 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
-public class AESDecryptExample {
+public class AESEncryptExample {
 
 	static final int LONGITUD_BLOQUE = 16;
 	private static final String PASSWORD = "MeLlamoSpiderman";
 	private static final String ALGORITMO = "AES/ECB/PKCS5Padding";
-	private static final String TEXTO_CIFRADO = "Vk8dDXzIPa0o5i4B60koftTuq7l5nwu574ArdboFZwlQBzm1Af+t6V+WGYAtJxQ0";
+	private static final String TEXTO = "Este es el texto que se va a cifrar";
 	
 	public static void main(String[] args) {
 		// 1 - Crear la clave. Al ser el algoritmo AES tenemos que indicarle la longitud del bloque
@@ -28,14 +28,14 @@ public class AESDecryptExample {
 			// 2 - Crear un Cipher
 			Cipher cipher = Cipher.getInstance(ALGORITMO);
 			
-			// 3 - Iniciar el descifrado con la clave
-			cipher.init(Cipher.DECRYPT_MODE, clave);
+			// 3 - Iniciar el cifrado con la clave
+			cipher.init(Cipher.ENCRYPT_MODE, clave);
 			
-			// 4 - Llevar a cabo el descifrado
-			byte[] plainText = cipher.doFinal(Base64.getDecoder().decode(TEXTO_CIFRADO));
+			// 4 - Llevar a cabo el cifrado
+			byte[] cipherText = cipher.doFinal(TEXTO.getBytes());
 			
-			// Imprimimos el mensaje descifrado:
-			System.out.println(new String(plainText));
+			// Imprimimos el mensaje cifrado en Base 64:
+			System.out.println(Base64.getEncoder().encodeToString(cipherText));
 			
 		} catch (NoSuchAlgorithmException e) {
 			System.err.println("No existe el algoritmo especificado");

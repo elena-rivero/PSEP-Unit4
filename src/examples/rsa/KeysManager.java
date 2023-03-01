@@ -46,6 +46,7 @@ public class KeysManager {
 			fos = new FileOutputStream(PRIVATE_KEY_FILE);
 			fos.write(claves.getPrivate().getEncoded());
 			fos.close();
+			
 		} catch (FileNotFoundException e) {
 			System.err.println("No se encuentra el fichero.");
 			e.printStackTrace();
